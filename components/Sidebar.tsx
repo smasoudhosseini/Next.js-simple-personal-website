@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from 'react-scroll';
 
+
 const Sidebar = () => {
+  const [expanded, setExpanded] = useState(false);
   return (
     <>
       <nav
@@ -15,16 +18,18 @@ const Sidebar = () => {
         >
           <span className="d-lg-block">
             <img
-              className="img-fluid img-profile rounded-circle mx-auto mb-2"
+              className="img-profile rounded-circle "
               src="/Seyedmasoud Hosseini.jpg"
               alt="Seyedmasoud Hosseini"
+              
+              
             />
           </span>
         </a>
-
-        <Navbar bg="transparent" expand="lg">
+       
+        <Navbar bg="transparent" expand="lg" expanded={expanded}>
           <Container>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : true)}/>
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <li className="nav-item">
@@ -37,6 +42,7 @@ const Sidebar = () => {
                     smooth={true}
                     offset={-70}
                     duration={500}
+                    onClick={() => setExpanded(false)}
                   >
                     About
                   </Link>
@@ -51,6 +57,7 @@ const Sidebar = () => {
                     smooth={true}
                     offset={-70}
                     duration={500}
+                    onClick={() => setExpanded(false)}
                   >
                     Education
                   </Link>
@@ -65,6 +72,7 @@ const Sidebar = () => {
                     smooth={true}
                     offset={-70}
                     duration={500}
+                    onClick={() => setExpanded(false)}
                   >
                     Experience
                   </Link>
@@ -79,6 +87,7 @@ const Sidebar = () => {
                     smooth={true}
                     offset={-70}
                     duration={500}
+                    onClick={() => setExpanded(false)}
                   >
                     Skills
                   </Link>
@@ -93,6 +102,7 @@ const Sidebar = () => {
                     smooth={true}
                     offset={-70}
                     duration={500}
+                    onClick={() => setExpanded(false)}
                   >
                     Publication & Award
                   </Link>
@@ -101,6 +111,7 @@ const Sidebar = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+       
       </nav>
     </>
   );
